@@ -11,3 +11,4 @@
    pip install tiktoken
    pip install openpyxl
    python -m spacy download en_core_web_sm
+   pip install python-dotenv
