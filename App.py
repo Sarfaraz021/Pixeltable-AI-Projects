@@ -102,7 +102,7 @@ def main():
 
     # File uploader
     uploaded_file = st.file_uploader(
-        "Upload a PDF, DOCX, or TXT file", type=["pdf", "docx", "txt"])
+        "Upload a PDF", type=["pdf"])
 
     if uploaded_file is not None:
         # Save the uploaded file temporarily
