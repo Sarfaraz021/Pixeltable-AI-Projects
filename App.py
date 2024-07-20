@@ -7,9 +7,10 @@ from pixeltable.functions import openai
 import numpy as np
 from datetime import datetime
 import tempfile
-
+from dotenv import load_dotenv
 # Set up OpenAI API key
-os.environ['OPENAI_API_KEY'] = "sk-proj-NSq5V9uOwBJFpbz7NojMT3BlbkFJvZ3jq4W7pG7HZJGSLA9c"
+load_dotenv("var.env")
+os.getenv("OPENAI_API_KEY")
 
 # Initialize tables and views
 
@@ -90,7 +91,7 @@ def setup_query_functions(chunks_t, queries_t):
     ]
 
     queries_t['response'] = openai.chat_completions(
-        model='gpt-4',
+        model='gpt-4o',
         messages=messages,
         temperature=0.7)
     queries_t['answer'] = queries_t.response.choices[0].message.content
@@ -98,7 +99,7 @@ def setup_query_functions(chunks_t, queries_t):
 
 def main():
     st.set_page_config(page_title="KnowledgeGPT", page_icon="📚")
-    st.title("📚 KnowledgeGPT")
+    st.title("📚 AskPDF")
 
     # File uploader
     uploaded_file = st.file_uploader(
